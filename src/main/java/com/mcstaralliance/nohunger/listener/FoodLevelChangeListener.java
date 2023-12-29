@@ -20,11 +20,16 @@ public class FoodLevelChangeListener implements Listener {
 
     @EventHandler
     public void onFoodLevelChange(FoodLevelChangeEvent event) {
-        HumanEntity entity = event.getEntity();
-        String uuid = entity.getUniqueId().toString();
-        if (!config.getNoHungerList().contains(uuid)) {
+        // if nohunger is on, player can eat foods.
+        if (event.getItem() != null) {
             return;
         }
+        HumanEntity entity = event.getEntity();
+        String name = entity.getName();
+        if (!config.getNoHungerList().contains(name)) {
+            return;
+        }
+        entity.setFoodLevel(20);
         event.setCancelled(true);
     }
 }

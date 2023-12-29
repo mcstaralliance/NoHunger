@@ -38,12 +38,12 @@ public final class NoHunger extends JavaPlugin {
         return new CommandAPICommand(Constants.NO_HUNGER_SWITCH_COMMAND_NAME)
                 .withPermission(Constants.NO_HUNGER_SWITCH_COMMAND_PERMISSION)
                 .executesPlayer((player, commandArguments) -> {
-                    String uuid = player.getUniqueId().toString();
-                    if (config.getNoHungerList().contains(uuid)) {
-                        config.removeNoHunger(uuid);
+                    String name = player.getName();
+                    if (config.getNoHungerList().contains(name)) {
+                        config.removeNoHunger(name);
                         player.sendMessage("[NoHunger]No hunger off");
                     } else {
-                        config.addNoHunger(uuid);
+                        config.addNoHunger(name);
                         player.sendMessage("[NoHunger]No hunger on");
                         player.setFoodLevel(20);
                     }

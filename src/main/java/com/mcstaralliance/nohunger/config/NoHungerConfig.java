@@ -15,20 +15,20 @@ public class NoHungerConfig {
         this.plugin = plugin;
     }
 
-    public boolean addNoHunger(String uuid) {
-        List<String> uuidList = plugin.getConfig().getStringList(Constants.NO_HUNGER_PLAYER_CONFIG);
-        Set<String> uuidSet = new HashSet<>(uuidList);
-        final boolean added = uuidSet.add(uuid);
-        uuidList = new ArrayList<>(uuidSet);
-        plugin.getConfig().set(Constants.NO_HUNGER_PLAYER_CONFIG, uuidList);
+    public boolean addNoHunger(String name) {
+        List<String> nameList = plugin.getConfig().getStringList(Constants.NO_HUNGER_PLAYER_CONFIG);
+        Set<String> nameSet = new HashSet<>(nameList);
+        final boolean added = nameSet.add(name);
+        nameList = new ArrayList<>(nameSet);
+        plugin.getConfig().set(Constants.NO_HUNGER_PLAYER_CONFIG, nameList);
         plugin.saveConfig();
         return added;
     }
 
-    public boolean removeNoHunger(String uuid) {
-        List<String> uuidList = plugin.getConfig().getStringList(Constants.NO_HUNGER_PLAYER_CONFIG);
-        boolean removed = uuidList.remove(uuid);
-        plugin.getConfig().set(Constants.NO_HUNGER_PLAYER_CONFIG, uuidList);
+    public boolean removeNoHunger(String name) {
+        List<String> nameList = plugin.getConfig().getStringList(Constants.NO_HUNGER_PLAYER_CONFIG);
+        boolean removed = nameList.remove(name);
+        plugin.getConfig().set(Constants.NO_HUNGER_PLAYER_CONFIG, nameList);
         plugin.saveConfig();
         return removed;
     }
