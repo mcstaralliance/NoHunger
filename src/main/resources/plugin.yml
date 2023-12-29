@@ -2,3 +2,6 @@ name: NoHunger
 version: '${project.version}'
 main: com.mcstaralliance.nohunger.NoHunger
 api-version: '1.16'
+prefix: NoHunger
+depend:
+  - CommandAPI
