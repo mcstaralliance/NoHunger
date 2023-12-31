@@ -31,6 +31,7 @@ public final class NoHunger extends JavaPlugin {
                 .withPermission(Constants.NO_HUNGER_COMMAND_PERMISSION)
                 .withSubcommand(registerSwitchCommand())
                 .withSubcommand(registerShowCommand())
+                .withSubcommand(registerReloadCommand())
                 .register();
     }
 
@@ -41,10 +42,10 @@ public final class NoHunger extends JavaPlugin {
                     String name = player.getName();
                     if (config.getNoHungerList().contains(name)) {
                         config.removeNoHunger(name);
-                        player.sendMessage("[NoHunger]No hunger off");
+                        player.sendMessage(config.getNoHungerOffMessage());
                     } else {
                         config.addNoHunger(name);
-                        player.sendMessage("[NoHunger]No hunger on");
+                        player.sendMessage(config.getNoHungerOnMessage());
                         player.setFoodLevel(20);
                     }
                 });
@@ -57,6 +58,16 @@ public final class NoHunger extends JavaPlugin {
                     sender.sendMessage(config.getNoHungerList().toArray(new String[0]));
                 });
     }
+
+    private CommandAPICommand registerReloadCommand() {
+        return new CommandAPICommand(Constants.NO_HUNGER_RELOAD_COMMAND_NAME)
+                .withPermission(Constants.NO_HUNGER_RELOAD_COMMAND_PERMISSION)
+                .executes((sender, arguments) -> {
+                    config.reload();
+                    sender.sendMessage(config.getReloadMessage());
+                });
+    }
+
 
     @Override
     public void onDisable() {

@@ -36,4 +36,24 @@ public class NoHungerConfig {
     public List<String> getNoHungerList() {
         return plugin.getConfig().getStringList(Constants.NO_HUNGER_PLAYER_CONFIG);
     }
+
+    private String getMessage(String key) {
+        return plugin.getConfig().getString(key);
+    }
+
+    public String getNoHungerOnMessage() {
+        return getMessage(Constants.NO_HUNGER_ON_MESSAGE_KEY);
+    }
+
+    public String getNoHungerOffMessage() {
+        return getMessage(Constants.NO_HUNGER_OFF_MESSAGE_KEY);
+    }
+
+    public String getReloadMessage() {
+        return getMessage(Constants.NO_HUNGER_RELOAD_MESSAGE_KEY);
+    }
+
+    public void reload() {
+        plugin.reloadConfig();
+    }
 }
