@@ -1,0 +1,5 @@
+no-hunger-player-uuid:
+
+no-hunger-on-message: '[NoHunger]No hunger on'
+no-hunger-off-message: '[NoHunger]No hunger off'
+no-hunger-reload-message: '[NoHunger]Configuration reloaded!'
