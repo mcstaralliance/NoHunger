@@ -1,5 +1,5 @@
 no-hunger-player-uuid:
 
-no-hunger-on-message: '[NoHunger]No hunger on'
-no-hunger-off-message: '[NoHunger]No hunger off'
-no-hunger-reload-message: '[NoHunger]Configuration reloaded!'
+no-hunger-on-message: '[NoHunger] 永不饥饿已启动。'
+no-hunger-off-message: '[NoHunger] 永不饥饿已关闭。'
+no-hunger-reload-message: '[NoHunger] Configuration reloaded!'

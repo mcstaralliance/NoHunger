@@ -1,6 +1,6 @@
 package com.mcstaralliance.nohunger.listener;
 
-import com.mcstaralliance.nohunger.config.NoHungerConfig;
+import com.mcstaralliance.nohunger.manager.ConfigManager;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -8,9 +8,9 @@ import org.bukkit.event.entity.FoodLevelChangeEvent;
 
 public class FoodLevelChangeListener implements Listener {
 
-    private final NoHungerConfig config;
+    private final ConfigManager config;
 
-    public FoodLevelChangeListener(NoHungerConfig config) {
+    public FoodLevelChangeListener(ConfigManager config) {
         this.config = config;
     }
 

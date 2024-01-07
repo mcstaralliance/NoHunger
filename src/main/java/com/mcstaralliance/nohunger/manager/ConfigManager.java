@@ -1,4 +1,4 @@
-package com.mcstaralliance.nohunger.config;
+package com.mcstaralliance.nohunger.manager;
 
 import com.mcstaralliance.nohunger.Constants;
 import com.mcstaralliance.nohunger.NoHunger;
@@ -8,10 +8,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class NoHungerConfig {
+public class ConfigManager {
     private final NoHunger plugin;
 
-    public NoHungerConfig(NoHunger plugin) {
+    public ConfigManager(NoHunger plugin) {
         this.plugin = plugin;
     }
 
