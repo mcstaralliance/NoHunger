@@ -3,6 +3,7 @@ package com.mcstaralliance.nohunger;
 import com.mcstaralliance.nohunger.config.NoHungerConfig;
 import com.mcstaralliance.nohunger.listener.FoodLevelChangeListener;
 import dev.jorel.commandapi.CommandAPI;
+import dev.jorel.commandapi.CommandAPIBukkitConfig;
 import dev.jorel.commandapi.CommandAPICommand;
 import dev.jorel.commandapi.CommandAPIConfig;
 import org.bukkit.Bukkit;
@@ -14,12 +15,13 @@ public final class NoHunger extends JavaPlugin {
 
     @Override
     public void onLoad() {
-        CommandAPI.onLoad(new CommandAPIConfig());
+        if (CommandAPI.isLoaded()) return;
+        CommandAPI.onLoad(new CommandAPIBukkitConfig(this));
     }
 
     @Override
     public void onEnable() {
-        CommandAPI.onEnable(this);
+        CommandAPI.onEnable();
         saveDefaultConfig();
         config = new NoHungerConfig(this);
         registerCommand();
@@ -72,5 +74,6 @@ public final class NoHunger extends JavaPlugin {
     @Override
     public void onDisable() {
         CommandAPI.unregister(Constants.NO_HUNGER_COMMAND_NAME);
+        CommandAPI.onDisable();
     }
 }
